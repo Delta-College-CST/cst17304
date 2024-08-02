@@ -11,15 +11,27 @@ print("BANK of DELTA")
 print("1: Deposit")
 print("2: Withdrawal")
 print("3: Add Interest")
+
 selection = int(input("Enter Selection: "))
 
+# Manage deposit
+if selection == 1:
+	amount = float(input("Enter amount to deposit: "))
+	print("$",amount,"deposited")
+	balance = balance + amount
 
+# Manage withdrawal
+if selection == 2:
+	amount = float(input("Enter amount to withdraw: "))
+	if amount > balance:
+		print("Balance funds insufficient")
+	else:
+		print("$",amount,"withdrawn")
+		balance = balance - amount
 
-
-  # ENTER YOUR CODE HERE
-
-
-
+# Manage interest increase
+if selection == 3:
+	balance = balance + INTEREST_RATE * balance
 
 # For all transactions, display final balance
 print("Balance now: $%8.2f" % (balance))
